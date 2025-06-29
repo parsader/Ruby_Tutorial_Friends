@@ -1,0 +1,48 @@
+<%= form_with(model: freind) do |form| %>
+  <% if freind.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(freind.errors.count, "error") %> prohibited this freind from being saved:</h2>
+
+      <ul>
+        <% freind.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <% form.label :first_name, class:"form-label", style: "display: block" %>
+    <%= form.text_field :first_name, class:"form-control", placeholder: "First Name" %>
+  </div>
+
+  <div>
+    <%= form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :twitter, style: "display: block" %>
+    <%= form.text_field :twitter %>
+  </div>
+
+  <br/>
+  <div class="field form-group">
+    <% form.label :user_id, class:"form-label", style: "display: block" %>
+    <%= form.number_field :user_id, id: :freind_user_id, class:"form-control", value: current_user.id, type: "hidden" %>
+  </div>
+<br/>
+  <div>
+    <%= form.submit class: "btn btn-secondary" %>
+  </div>
+<% end %>

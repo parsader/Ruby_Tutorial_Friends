@@ -1,0 +1,28 @@
+<div class="card" style="width: 18rem;">
+
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= @freind.first_name %>
+      <%= @freind.last_name %>
+        
+      </h5>
+    <p class="card-text">
+      <%= render @freind %>
+    </p>
+    <p>
+      <br/><br/>
+  <%= link_to "Edit this freind", edit_freind_path(@freind), class:"btn btn-secondary"  %>
+</p>
+  <br/>
+<p>
+  <%= link_to "Back to freinds", freinds_path, class:"btn btn-dark"  %>
+</p>
+
+  </div>
+</div>
+
+  <br/><br/>
+
+<p>
+  <%= button_to "Destroy this freind", @freind, method: :delete, class:"btn btn-dark"  %>
+</p>
